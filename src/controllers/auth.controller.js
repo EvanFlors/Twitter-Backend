@@ -70,14 +70,7 @@ export const login = async (req, res) => {
 			return res.status(400).json({ error: "Invalid username or password" });
 		}
 
-		const cookie = generateTokenAndSetCookie(user._id, res);
-
-    res.cookie("jwt", cookie, {
-      maxAge: 15 * 24 * 60 * 60 * 1000, //MS
-      httpOnly: true, // prevent XSS attacks cross-site scripting attacks
-      sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-      secure: process.env.NODE_ENV !== "development",
-    });
+		generateTokenAndSetCookie(user._id, res);
 
 		res.status(200).json({
 			_id: user._id,
