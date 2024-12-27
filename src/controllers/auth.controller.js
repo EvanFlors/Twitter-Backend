@@ -41,7 +41,7 @@ export const signup = async (req, res) => {
 			await newUser.save();
 
 			res.status(201).json({
-        
+
 				_id: newUser._id,
 				fullName: newUser.fullName,
 				username: newUser.username,
@@ -70,9 +70,10 @@ export const login = async (req, res) => {
 			return res.status(400).json({ error: "Invalid username or password" });
 		}
 
-		generateTokenAndSetCookie(user._id, res);
+		const cookie = generateTokenAndSetCookie(user._id, res);
 
 		res.status(200).json({
+      cookie,
 			_id: user._id,
 			fullName: user.fullName,
 			username: user.username,
