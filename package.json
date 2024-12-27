@@ -1,11 +1,11 @@
 {
-  "name": "twitter-clone",
+  "name": "twitter-backend",
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
   "scripts": {
-    "dev": "npx nodemon backend/index.js",
-    "start": "node backend/index.js",
+    "dev": "npx nodemon index.js",
+    "start": "node index.js",
     "build": "npm install --include=dev"
   },
   "keywords": [],
@@ -21,7 +21,7 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.2",
-    "twitter-clone": "file:"
+    "twitter-backend": "file:"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
