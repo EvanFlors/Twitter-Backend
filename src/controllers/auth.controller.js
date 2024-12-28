@@ -69,10 +69,10 @@ export const login = async (req, res) => {
 			return res.status(400).json({ error: "Invalid username or password" });
 		}
 
-		generateTokenAndSetCookie(user._id, res);
+		token = generateTokenAndSetCookie(user._id, res);
 
 		res.status(200).json({
-      token: res.cookies.jwt,
+      token,
 			_id: user._id,
 			fullName: user.fullName,
 			username: user.username,
